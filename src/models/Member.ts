@@ -7,6 +7,7 @@ interface MemberAttributes {
   userId: number;
   groupId: number;
   amountContributed: number;
+  role: string;
 }
 
 interface MemberCreationAttributes extends Optional<MemberAttributes, 'id'> {}
@@ -30,6 +31,11 @@ const MemberModel = sequelize.define<MemberInstance>('members', {
   amountContributed: {
     type: DataTypes.INTEGER,
     defaultValue: 0,
+  },
+  role: {
+    type: DataTypes.ENUM('admin', 'member'),
+    defaultValue: 'member',
+    allowNull: false,
   },
 });
 

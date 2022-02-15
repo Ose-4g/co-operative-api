@@ -8,6 +8,7 @@ import cors from 'cors';
 
 // import router
 import authRouter from './routes/auth';
+import groupRouter from './routes/group';
 
 //add middlewares
 const app = express();
@@ -28,6 +29,7 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 app.use('/auth', authRouter);
+app.use('/group', groupRouter);
 
 //unhandled routes
 app.use('*', (req: Request, res: Response) => {
