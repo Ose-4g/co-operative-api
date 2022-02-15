@@ -1,11 +1,4 @@
 const constants = {
-  mongooseModels: {
-    USER: 'User',
-    TRANSACTION: 'Transaction',
-    SHARE: 'Share',
-    LOAN: 'Loan',
-    LOAN_PAYMENT: 'LoanPayment',
-  },
   environments: {
     PRODUCTION: 'production',
     DEVELOPMENT: 'development',
@@ -30,11 +23,9 @@ const constants = {
     PAYBACK: 'payback',
   },
 
-  transactionStatus: {
-    INITIATED: 'initiated',
-    FAILURE: 'failure',
-    SUCCESS: 'success',
-    PENDING: 'pending',
+  groupVisibilty: {
+    PUBLIC: 'public',
+    PRIVATE: 'private',
   },
 };
 

@@ -1,5 +1,8 @@
 import { Sequelize, Model, DataTypes, Optional } from 'sequelize';
 import sequelize from '../db/sequelize';
+import constants from '../utils/constants';
+
+const { PUBLIC, PRIVATE } = constants.groupVisibilty;
 
 interface GroupAttributes {
   id: number;
@@ -12,9 +15,9 @@ interface GroupAttributes {
 
 interface GroupCreationAttributes extends Optional<GroupAttributes, 'id'> {}
 
-interface BallInstance extends Model<GroupAttributes, GroupCreationAttributes>, GroupAttributes {}
+export interface GroupInstance extends Model<GroupAttributes, GroupCreationAttributes>, GroupAttributes {}
 
-const GroupModel = sequelize.define(/*<BallInstance>*/ 'balls', {
+const GroupModel = sequelize.define<GroupInstance>('balls', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -29,6 +32,20 @@ const GroupModel = sequelize.define(/*<BallInstance>*/ 'balls', {
     type: DataTypes.STRING(200),
   },
   visibility: {
-    type: DataTypes.ENUM,
+    type: DataTypes.ENUM(PRIVATE, PUBLIC),
+    defaultValue: PUBLIC,
+    allowNull: false,
+  },
+  maxCapacity: {
+    type: DataTypes.INTEGER,
+    defaultValue: 20,
+    allowNull: false,
+  },
+  weeklyContribution: {
+    type: DataTypes.INTEGER,
+    defaultValue: 1000,
+    allowNull: false,
   },
 });
+
+export default GroupModel;
