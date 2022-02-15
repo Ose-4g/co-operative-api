@@ -5,6 +5,7 @@ const { username, password, database, dialect, host } = config.development;
 const sequelize = new Sequelize(database, username, password, {
   host: host,
   dialect: dialect as Dialect,
+  port: 5432,
 });
 
 export default sequelize;
