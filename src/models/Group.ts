@@ -2,8 +2,6 @@ import { Sequelize, Model, DataTypes, Optional } from 'sequelize';
 import sequelize from '../db/sequelize';
 import constants from '../utils/constants';
 
-const { PUBLIC, PRIVATE } = constants.groupVisibilty;
-
 interface GroupAttributes {
   id: number;
   name: string;
@@ -32,8 +30,8 @@ const GroupModel = sequelize.define<GroupInstance>('groups', {
     type: DataTypes.STRING(200),
   },
   visibility: {
-    type: DataTypes.ENUM(PRIVATE, PUBLIC),
-    defaultValue: PUBLIC,
+    type: DataTypes.ENUM('private', 'public'),
+    defaultValue: 'public',
     allowNull: false,
   },
   maxCapacity: {
