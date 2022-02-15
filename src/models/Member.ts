@@ -1,4 +1,4 @@
-import { Sequelize, Model, DataTypes, Optional } from 'sequelize';
+import { Sequelize, Model, DataTypes, Optional, ModelCtor } from 'sequelize';
 import sequelize from '../db/sequelize';
 import constants from '../utils/constants';
 

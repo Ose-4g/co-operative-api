@@ -7,6 +7,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 
 // import router
+import authRouter from './routes/auth';
 
 //add middlewares
 const app = express();
@@ -25,6 +26,8 @@ app.get('/', (req: Request, res: Response) => {
     documentation: 'https://documenter.getpostman.com/view/15666544/UVBzmpG7',
   });
 });
+
+app.use('/auth', authRouter);
 
 //unhandled routes
 app.use('*', (req: Request, res: Response) => {

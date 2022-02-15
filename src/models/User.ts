@@ -14,7 +14,7 @@ interface UserCreationAttributes extends Optional<UserAttributes, 'id'> {}
 
 export interface UserInstance extends Model<UserAttributes, UserCreationAttributes>, UserAttributes {}
 
-const UserModel = sequelize.define(/*<UserInstance>*/ 'users', {
+const UserModel = sequelize.define<UserInstance>('users', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -33,7 +33,7 @@ const UserModel = sequelize.define(/*<UserInstance>*/ 'users', {
     allowNull: false,
   },
   password: {
-    type: DataTypes.STRING(30),
+    type: DataTypes.STRING(100),
     allowNull: false,
   },
 });
