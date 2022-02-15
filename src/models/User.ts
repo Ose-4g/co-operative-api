@@ -14,7 +14,7 @@ interface UserCreationAttributes extends Optional<UserAttributes, 'id'> {}
 
 export interface UserInstance extends Model<UserAttributes, UserCreationAttributes>, UserAttributes {}
 
-const UserModel = sequelize.define(/*<UserInstance>*/ 'balls', {
+const UserModel = sequelize.define(/*<UserInstance>*/ 'users', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,

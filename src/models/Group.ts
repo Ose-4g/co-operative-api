@@ -17,7 +17,7 @@ interface GroupCreationAttributes extends Optional<GroupAttributes, 'id'> {}
 
 export interface GroupInstance extends Model<GroupAttributes, GroupCreationAttributes>, GroupAttributes {}
 
-const GroupModel = sequelize.define<GroupInstance>('balls', {
+const GroupModel = sequelize.define<GroupInstance>('groups', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,

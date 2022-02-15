@@ -13,7 +13,7 @@ interface MemberCreationAttributes extends Optional<MemberAttributes, 'id'> {}
 
 export interface MemberInstance extends Model<MemberAttributes, MemberCreationAttributes>, MemberAttributes {}
 
-const MemberModel = sequelize.define<MemberInstance>('balls', {
+const MemberModel = sequelize.define<MemberInstance>('members', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
