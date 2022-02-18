@@ -8,8 +8,4 @@ let sequelize = new Sequelize(database, username, password, {
   port: 5432,
 });
 
-if (process.env.NODE_ENV === 'production') {
-  sequelize = new Sequelize(process.env.DATABASE_URL as string);
-}
-
 export default sequelize;
